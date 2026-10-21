@@ -1,0 +1,4204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mechanix Fleet | Heavy Construction Equipment</title>
+
+<meta name="description"
+content="Mechanix Fleet — Heavy construction machinery for sale and rent. Excavators, cranes, loaders, road equipment, attachments and more.">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+   
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#F4F6F8;
+    color:#20252c;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+:root{
+    --yellow:#FFB800;
+    --orange:#FF5722;
+    --charcoal:#1E2229;
+    --steel:#2B313A;
+    --dark:#111419;
+    --offwhite:#F4F6F8;
+    --white:#ffffff;
+    --text:#20252c;
+    --muted:#69727d;
+    --border:#dfe4e9;
+    --success:#198754;
+    --shadow:0 12px 35px rgba(18,24,32,.10);
+    --radius:16px;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+
+/* =========================================================
+   GLOBAL PARALLAX BACKGROUND
+========================================================= */
+
+/*
+   Ye main parallax background hai.
+   Website ke sections iske upar appear honge.
+*/
+
+.parallax-background{
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    overflow:hidden;
+    background:#111419;
+}
+
+.parallax-background::before{
+    content:"";
+    position:absolute;
+    inset:-8%;
+    
+    background:
+        linear-gradient(
+            rgba(17,20,25,.72),
+            rgba(17,20,25,.82)
+        ),
+        url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2200&q=90");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    transform:scale(1.08);
+    
+    animation:
+        backgroundZoom 18s ease-in-out infinite alternate;
+
+    filter:saturate(.9) contrast(1.05);
+}
+
+.parallax-background::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255,184,0,.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255,87,34,.10),
+            transparent 30%
+        );
+
+    pointer-events:none;
+}
+
+@keyframes backgroundZoom{
+
+    0%{
+        transform:scale(1.08) translate3d(0,0,0);
+    }
+
+    100%{
+        transform:scale(1.18) translate3d(-1%,1%,0);
+    }
+
+}
+
+
+/* =========================================================
+   PARALLAX SCROLL LAYERS
+========================================================= */
+
+.parallax-layer{
+    transform:translate3d(0,0,0);
+    will-change:transform;
+}
+
+.parallax-shape{
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+    opacity:.15;
+    filter:blur(1px);
+}
+
+.shape-one{
+    width:300px;
+    height:300px;
+    background:var(--yellow);
+    top:15%;
+    left:-120px;
+}
+
+.shape-two{
+    width:220px;
+    height:220px;
+    background:var(--orange);
+    right:-80px;
+    top:55%;
+}
+
+.shape-three{
+    width:140px;
+    height:140px;
+    background:var(--yellow);
+    left:45%;
+    bottom:10%;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+    background:rgba(30,34,41,.96);
+    color:#fff;
+    font-size:13px;
+    position:relative;
+    z-index:10;
+}
+
+.topbar-inner{
+    min-height:40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.topbar-right{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.topbar a:hover{
+    color:var(--yellow);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 12px rgba(0,0,0,.07);
+}
+
+.nav{
+    min-height:78px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.logo{
+    min-width:210px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-mark{
+    width:45px;
+    height:45px;
+    background:var(--yellow);
+    color:var(--charcoal);
+    display:grid;
+    place-items:center;
+    font-size:22px;
+    font-weight:900;
+    transform:skew(-8deg);
+    border-radius:7px;
+}
+
+.logo-text{
+    font-size:21px;
+    font-weight:900;
+    letter-spacing:-.7px;
+}
+
+.logo-text span{
+    color:var(--orange);
+}
+
+.logo small{
+    display:block;
+    color:var(--muted);
+    font-size:9px;
+    letter-spacing:1px;
+    margin-top:-2px;
+}
+
+.search-area{
+    flex:1;
+    display:flex;
+    height:46px;
+    border:1px solid var(--border);
+    border-radius:9px;
+    overflow:hidden;
+    background:#fff;
+}
+
+.search-area select{
+    border:0;
+    border-right:1px solid var(--border);
+    padding:0 12px;
+    background:#f7f8f9;
+    color:var(--text);
+}
+
+.search-area input{
+    flex:1;
+    border:0;
+    outline:none;
+    padding:0 15px;
+}
+
+.search-btn{
+    width:52px;
+    border:0;
+    background:var(--yellow);
+    color:var(--charcoal);
+    font-weight:bold;
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.currency{
+    border:1px solid var(--border);
+    background:#fff;
+    padding:10px;
+    border-radius:8px;
+}
+
+.quote-btn{
+    background:var(--orange);
+    color:#fff;
+    border:0;
+    padding:12px 17px;
+    border-radius:8px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.quote-btn:hover{
+    background:#df4315;
+}
+
+.mobile-menu{
+    display:none;
+    border:0;
+    background:var(--charcoal);
+    color:#fff;
+    padding:10px 13px;
+    border-radius:7px;
+    font-size:20px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(17,20,25,.97) 0%,
+            rgba(17,20,25,.82) 42%,
+            rgba(17,20,25,.25) 100%
+        );
+
+    color:#fff;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(255,184,0,.18),
+            transparent 28%
+        );
+
+    pointer-events:none;
+}
+
+.hero-content{
+    max-width:690px;
+    color:#fff;
+    padding:100px 0;
+    position:relative;
+    z-index:2;
+}
+
+.hero-label{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,184,0,.15);
+    border:1px solid rgba(255,184,0,.5);
+    color:var(--yellow);
+    padding:8px 13px;
+    border-radius:5px;
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:.7px;
+    margin-bottom:20px;
+    animation:fadeUp 1s ease both;
+}
+
+.hero h1{
+    font-size:clamp(42px,6vw,72px);
+    line-height:1.02;
+    letter-spacing:-2.5px;
+    margin-bottom:22px;
+    animation:fadeUp 1s .15s ease both;
+}
+
+.hero h1 span{
+    color:var(--yellow);
+    display:block;
+}
+
+.hero p{
+    color:#dbe0e5;
+    font-size:18px;
+    max-width:610px;
+    margin-bottom:32px;
+    animation:fadeUp 1s .3s ease both;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:13px;
+    animation:fadeUp 1s .45s ease both;
+}
+
+.btn{
+    border:0;
+    padding:14px 22px;
+    border-radius:8px;
+    font-weight:800;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+.btn-primary{
+    background:var(--yellow);
+    color:var(--charcoal);
+}
+
+.btn-secondary{
+    background:#fff;
+    color:var(--charcoal);
+}
+
+.btn-outline{
+    background:transparent;
+    color:#fff;
+    border:1px solid #69727d;
+}
+
+.hero-stats{
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    margin-top:45px;
+    animation:fadeUp 1s .6s ease both;
+}
+
+.hero-stat strong{
+    display:block;
+    color:var(--yellow);
+    font-size:25px;
+}
+
+.hero-stat span{
+    font-size:12px;
+    color:#cbd1d7;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   FLOATING PARALLAX MACHINE DECORATION
+========================================================= */
+
+.floating-machine{
+    position:absolute;
+    right:5%;
+    bottom:8%;
+    width:430px;
+    opacity:.18;
+    pointer-events:none;
+
+    transform:
+        translate3d(
+            0,
+            calc(var(--scroll-y, 0px) * -.08),
+            0
+        );
+
+    transition:transform .1s linear;
+}
+
+.floating-machine img{
+    width:100%;
+    filter:grayscale(1) brightness(1.4);
+}
+
+
+/* =========================================================
+   TRUST BAR
+========================================================= */
+
+.trust-bar{
+    background:var(--yellow);
+    position:relative;
+    z-index:2;
+}
+
+.trust-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
+
+.trust-item{
+    padding:20px 15px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    border-right:1px solid rgba(0,0,0,.13);
+}
+
+.trust-item:last-child{
+    border:0;
+}
+
+.trust-icon{
+    font-size:27px;
+}
+
+.trust-item strong{
+    display:block;
+    font-size:14px;
+}
+
+.trust-item span{
+    display:block;
+    font-size:12px;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+    padding:80px 0;
+    position:relative;
+    z-index:2;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:20px;
+    margin-bottom:35px;
+}
+
+.eyebrow{
+    color:var(--orange);
+    font-weight:900;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    margin-bottom:8px;
+}
+
+.section-title{
+    font-size:clamp(30px,4vw,45px);
+    line-height:1.1;
+    color:var(--charcoal);
+}
+
+.section-text{
+    color:var(--muted);
+    max-width:600px;
+}
+
+
+/* =========================================================
+   GLASS SECTION EFFECT
+========================================================= */
+
+.glass-section{
+    background:rgba(244,246,248,.92);
+    backdrop-filter:blur(4px);
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.category-card{
+    min-height:240px;
+    border-radius:var(--radius);
+    overflow:hidden;
+    position:relative;
+    background:var(--charcoal);
+    color:#fff;
+    transition:.4s;
+}
+
+.category-card:hover{
+    transform:translateY(-8px) scale(1.01);
+    box-shadow:var(--shadow);
+}
+
+.category-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    position:absolute;
+    inset:0;
+    opacity:.62;
+    transition:.5s;
+}
+
+.category-card:hover img{
+    transform:scale(1.08);
+}
+
+.category-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        transparent 20%,
+        rgba(0,0,0,.9)
+    );
+}
+
+.category-info{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+    right:20px;
+}
+
+.category-info h3{
+    font-size:21px;
+    margin-bottom:4px;
+}
+
+.category-info p{
+    color:#dce0e4;
+    font-size:13px;
+}
+
+
+/* =========================================================
+   INVENTORY
+========================================================= */
+
+.inventory{
+    background:rgba(255,255,255,.96);
+}
+
+.filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:28px;
+}
+
+.filter-btn{
+    border:1px solid var(--border);
+    background:#fff;
+    padding:10px 17px;
+    border-radius:30px;
+    color:var(--muted);
+    font-weight:700;
+    transition:.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+    background:var(--charcoal);
+    color:#fff;
+    border-color:var(--charcoal);
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.product-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    overflow:hidden;
+    transition:.4s;
+}
+
+.product-card:hover{
+    transform:translateY(-7px);
+    box-shadow:var(--shadow);
+}
+
+.product-image{
+    height:220px;
+    background:#e8ebee;
+    position:relative;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.product-card:hover .product-image img{
+    transform:scale(1.06);
+}
+
+.badge{
+    position:absolute;
+    top:13px;
+    left:13px;
+    padding:6px 9px;
+    border-radius:5px;
+    font-size:11px;
+    font-weight:900;
+    text-transform:uppercase;
+}
+
+.badge-rent{
+    background:var(--yellow);
+    color:var(--charcoal);
+}
+
+.badge-buy{
+    background:var(--orange);
+    color:#fff;
+}
+
+.product-body{
+    padding:20px;
+}
+
+.product-category{
+    font-size:11px;
+    text-transform:uppercase;
+    color:var(--orange);
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.product-body h3{
+    margin:5px 0 4px;
+    font-size:21px;
+}
+
+.model{
+    color:var(--muted);
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+.specs{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin-bottom:18px;
+}
+
+.spec{
+    background:#f3f5f7;
+    padding:8px;
+    border-radius:7px;
+    text-align:center;
+}
+
+.spec strong{
+    display:block;
+    font-size:12px;
+}
+
+.spec span{
+    color:var(--muted);
+    font-size:9px;
+}
+
+.price-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:15px;
+}
+
+.price strong{
+    font-size:24px;
+    color:var(--charcoal);
+}
+
+.price span{
+    font-size:11px;
+    color:var(--muted);
+}
+
+.card-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+}
+
+.card-actions button{
+    border:0;
+    padding:11px;
+    border-radius:7px;
+    font-weight:800;
+    transition:.3s;
+}
+
+.card-actions button:hover{
+    transform:translateY(-2px);
+}
+
+.rent-btn{
+    background:var(--yellow);
+    color:var(--charcoal);
+}
+
+.buy-btn{
+    background:var(--charcoal);
+    color:#fff;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services{
+    background:rgba(30,34,41,.96);
+    color:#fff;
+}
+
+.services .section-title{
+    color:#fff;
+}
+
+.services .section-text{
+    color:#aeb6bf;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.service-card{
+    border:1px solid #3b424b;
+    padding:28px 22px;
+    border-radius:13px;
+    background:#252a31;
+    transition:.4s;
+}
+
+.service-card:hover{
+    border-color:var(--yellow);
+    transform:translateY(-7px);
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+}
+
+.service-icon{
+    width:52px;
+    height:52px;
+    background:var(--yellow);
+    color:var(--charcoal);
+    border-radius:10px;
+    display:grid;
+    place-items:center;
+    font-size:25px;
+    margin-bottom:20px;
+}
+
+.service-card h3{
+    margin-bottom:9px;
+}
+
+.service-card p{
+    color:#adb5be;
+    font-size:14px;
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote-section{
+    background:rgba(255,255,255,.96);
+}
+
+.quote-layout{
+    display:grid;
+    grid-template-columns:1fr 1.15fr;
+    gap:45px;
+    align-items:center;
+}
+
+.quote-copy{
+    background:var(--charcoal);
+    color:#fff;
+    border-radius:var(--radius);
+    padding:42px;
+    min-height:470px;
+}
+
+.quote-copy h2{
+    font-size:40px;
+    line-height:1.1;
+    margin-bottom:18px;
+}
+
+.quote-copy p{
+    color:#b9c0c8;
+}
+
+.quote-points{
+    list-style:none;
+    margin-top:28px;
+}
+
+.quote-points li{
+    margin:13px 0;
+    color:#e4e8eb;
+}
+
+.quote-points li::before{
+    content:"✓";
+    color:var(--yellow);
+    font-weight:bold;
+    margin-right:10px;
+}
+
+.quote-form{
+    padding:10px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.form-group{
+    margin-bottom:16px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:12px;
+    outline:none;
+    background:#fff;
+}
+
+.form-group textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--yellow);
+}
+
+.submit-btn{
+    width:100%;
+    background:var(--orange);
+    color:#fff;
+    border:0;
+    padding:14px;
+    border-radius:8px;
+    font-weight:900;
+}
+
+.form-message{
+    margin-top:15px;
+    padding:12px;
+    background:#eaf8ef;
+    color:var(--success);
+    border-radius:7px;
+    display:none;
+}
+
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonials{
+    background:rgba(240,242,244,.95);
+}
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.testimonial{
+    background:#fff;
+    padding:27px;
+    border-radius:13px;
+    border:1px solid var(--border);
+    transition:.3s;
+}
+
+.testimonial:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.stars{
+    color:#f5a900;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+.testimonial p{
+    color:#4e5863;
+    margin-bottom:20px;
+}
+
+.customer{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:var(--charcoal);
+    color:var(--yellow);
+    display:grid;
+    place-items:center;
+    font-weight:bold;
+}
+
+.customer strong{
+    display:block;
+}
+
+.customer span{
+    color:var(--muted);
+    font-size:12px;
+}
+
+
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+.newsletter{
+    background:var(--yellow);
+}
+
+.newsletter-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.newsletter h2{
+    font-size:30px;
+    color:var(--charcoal);
+}
+
+.newsletter p{
+    color:#4e4740;
+}
+
+.newsletter-form{
+    display:flex;
+    min-width:420px;
+}
+
+.newsletter-form input{
+    flex:1;
+    border:0;
+    padding:14px;
+    border-radius:7px 0 0 7px;
+    outline:none;
+}
+
+.newsletter-form button{
+    border:0;
+    background:var(--charcoal);
+    color:#fff;
+    padding:0 20px;
+    border-radius:0 7px 7px 0;
+    font-weight:800;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#111419;
+    color:#fff;
+    padding:60px 0 25px;
+    position:relative;
+    z-index:2;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr repeat(3,1fr);
+    gap:40px;
+    padding-bottom:40px;
+}
+
+.footer-brand p{
+    color:#89929c;
+    max-width:330px;
+    margin-top:15px;
+    font-size:14px;
+}
+
+.footer-col h4{
+    margin-bottom:17px;
+}
+
+.footer-col a{
+    display:block;
+    color:#9ba3ad;
+    margin:9px 0;
+    font-size:14px;
+}
+
+.footer-col a:hover{
+    color:var(--yellow);
+}
+
+.footer-bottom{
+    border-top:1px solid #292f36;
+    padding-top:22px;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    color:#737c86;
+    font-size:12px;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:2000;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    background:#fff;
+    width:min(560px,100%);
+    border-radius:15px;
+    padding:30px;
+    position:relative;
+    max-height:90vh;
+    overflow-y:auto;
+}
+
+.close-modal{
+    position:absolute;
+    right:18px;
+    top:14px;
+    border:0;
+    background:none;
+    font-size:25px;
+}
+
+.modal-box h2{
+    margin-bottom:8px;
+}
+
+.modal-box p{
+    color:var(--muted);
+    margin-bottom:20px;
+}
+
+.selected-equipment{
+    background:#f3f5f7;
+    padding:13px;
+    border-radius:8px;
+    margin-bottom:18px;
+    font-weight:bold;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .nav{
+        gap:12px;
+    }
+
+    .logo{
+        min-width:180px;
+    }
+
+    .category-grid,
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .quote-layout{
+        grid-template-columns:1fr;
+    }
+
+    .floating-machine{
+        width:330px;
+        right:-50px;
+    }
+}
+
+
+@media(max-width:800px){
+
+    .topbar-right{
+        display:none;
+    }
+
+    .nav{
+        min-height:70px;
+    }
+
+    .search-area{
+        display:none;
+    }
+
+    .search-area.mobile-search{
+        display:flex;
+        position:absolute;
+        top:75px;
+        left:4%;
+        width:92%;
+        z-index:2000;
+    }
+
+    .nav-actions .currency{
+        display:none;
+    }
+
+    .quote-btn{
+        display:none;
+    }
+
+    .mobile-menu{
+        display:block;
+    }
+
+    .trust-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .trust-item:nth-child(2){
+        border-right:0;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    .floating-machine{
+        width:280px;
+        right:-90px;
+        bottom:10%;
+    }
+
+    .newsletter-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .newsletter-form{
+        min-width:0;
+        width:100%;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+
+@media(max-width:600px){
+
+    .section{
+        padding:60px 0;
+    }
+
+    .section-head{
+        display:block;
+    }
+
+    .section-text{
+        margin-top:12px;
+    }
+
+    .category-grid,
+    .product-grid,
+    .services-grid,
+    .testimonial-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        min-height:650px;
+    }
+
+    .hero-content{
+        padding:70px 0;
+    }
+
+    .hero h1{
+        font-size:40px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-buttons .btn{
+        width:100%;
+    }
+
+    .hero-stats{
+        gap:20px;
+    }
+
+    .trust-grid{
+        grid-template-columns:1fr;
+    }
+
+    .trust-item{
+        border-right:0;
+        border-bottom:1px solid rgba(0,0,0,.13);
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .quote-copy{
+        padding:28px;
+    }
+
+    .quote-copy h2{
+        font-size:31px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+    }
+
+    .floating-machine{
+        display:none;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     GLOBAL PARALLAX BACKGROUND
+======================================================= -->
+
+<div class="parallax-background">
+
+    <div class="parallax-shape shape-one"></div>
+
+    <div class="parallax-shape shape-two"></div>
+
+    <div class="parallax-shape shape-three"></div>
+
+</div>
+
+
+<!-- =======================================================
+     TOP BAR
+======================================================= -->
+
+<div class="topbar">
+
+    <div class="container topbar-inner">
+
+        <div>
+            🚧 <strong>Mechanix Fleet</strong>
+            — Powering Construction, Elevating Infrastructure.
+        </div>
+
+        <div class="topbar-right">
+
+            <a href="tel:+923088096937">
+                ☎ 24/7 Support: +92 3088096937
+            </a>
+
+            <span>● Live Support</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header class="header">
+
+    <div class="container nav">
+
+        <a href="#" class="logo">
+
+            <div class="logo-mark">
+                MF
+            </div>
+
+            <div class="logo-text">
+
+                MECHANIX <span>FLEET</span>
+
+                <small>
+                    HEAVY EQUIPMENT SOLUTIONS
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <div class="search-area" id="searchArea">
+
+            <select id="searchType">
+
+                <option value="all">All</option>
+
+                <option value="buy">Buy</option>
+
+                <option value="rent">Rent</option>
+
+                <option value="parts">Parts</option>
+
+            </select>
+
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search excavators, cranes, loaders..."
+            >
+
+
+            <button
+                class="search-btn"
+                onclick="searchEquipment()"
+            >
+                ⌕
+            </button>
+
+        </div>
+
+
+        <div class="nav-actions">
+
+            <select
+                class="currency"
+                id="currencySelect"
+            >
+
+                <option value="USD">
+                    USD $
+                </option>
+
+                <option value="EUR">
+                    EUR €
+                </option>
+
+                <option value="GBP">
+                    GBP £
+                </option>
+
+                <option value="PKR">
+                    PKR ₨
+                </option>
+
+            </select>
+
+
+            <button
+                class="quote-btn"
+                onclick="openQuote('Custom Equipment Quote')"
+            >
+                Request Quote
+            </button>
+
+
+            <button
+                class="mobile-menu"
+                onclick="toggleMobileSearch()"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="hero parallax-layer">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                ⚙ INDUSTRIAL EQUIPMENT MARKETPLACE
+            </div>
+
+
+            <h1>
+
+                Heavy-Duty Equipment
+
+                <span>
+                    for Every Job Site.
+                </span>
+
+            </h1>
+
+
+            <p>
+                Buy, rent, and maintain professional construction machinery
+                backed by reliable field support, flexible rental solutions,
+                and genuine spare parts.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#fleet"
+                    class="btn btn-primary"
+                >
+                    Explore Fleet →
+                </a>
+
+
+                <button
+                    class="btn btn-secondary"
+                    onclick="openQuote('Custom Machinery Quote')"
+                >
+                    Request Custom Quote
+                </button>
+
+            </div>
+
+
+            <div class="hero-stats">
+
+                <div class="hero-stat">
+
+                    <strong>
+                        500+
+                    </strong>
+
+                    <span>
+                        Machines Available
+                    </span>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <strong>
+                        24/7
+                    </strong>
+
+                    <span>
+                        Field Support
+                    </span>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <strong>
+                        15+
+                    </strong>
+
+                    <span>
+                        Years Experience
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Floating machine background -->
+
+    <div class="floating-machine">
+
+        <img
+            src="https://images.unsplash.com/photo-1580901369227-308f6f40bdeb?auto=format&fit=crop&w=1000&q=80"
+            alt=""
+        >
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     TRUST BAR
+======================================================= -->
+
+<section class="trust-bar">
+
+    <div class="container trust-grid">
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                🛡
+            </div>
+
+            <div>
+
+                <strong>
+                    Safety First
+                </strong>
+
+                <span>
+                    Certified equipment
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                ☎
+            </div>
+
+            <div>
+
+                <strong>
+                    24/7 Field Support
+                </strong>
+
+                <span>
+                    Help when you need it
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                🚚
+            </div>
+
+            <div>
+
+                <strong>
+                    Fast Site Delivery
+                </strong>
+
+                <span>
+                    Reliable logistics
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                🔧
+            </div>
+
+            <div>
+
+                <strong>
+                    Expert Maintenance
+                </strong>
+
+                <span>
+                    On-site service
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     CATEGORIES
+======================================================= -->
+
+<section class="section glass-section reveal">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+
+                <div class="eyebrow">
+                    Explore Our Fleet
+                </div>
+
+                <h2 class="section-title">
+                    Built for Tough Jobs.
+                </h2>
+
+            </div>
+
+
+            <p class="section-text">
+
+                From earthmoving to road construction,
+                find machines engineered for demanding
+                construction environments.
+
+            </p>
+
+        </div>
+
+
+        <div class="category-grid">
+
+
+            <a
+                href="#fleet"
+                class="category-card"
+                onclick="filterCategory('Earthmoving')"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1580901369227-308f6f40bdeb?auto=format&fit=crop&w=800&q=80"
+                    alt="Excavator"
+                >
+
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+
+                    <h3>
+                        Earthmoving
+                    </h3>
+
+                    <p>
+                        Excavators • Bulldozers • Wheel Loaders
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="#fleet"
+                class="category-card"
+                onclick="filterCategory('Material Handling')"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80"
+                    alt="Construction crane"
+                >
+
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+
+                    <h3>
+                        Material Handling
+                    </h3>
+
+                    <p>
+                        Cranes • Forklifts • Telehandlers
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="#fleet"
+                class="category-card"
+                onclick="filterCategory('Road Construction')"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80"
+                    alt="Road construction"
+                >
+
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+
+                    <h3>
+                        Concrete & Road
+                    </h3>
+
+                    <p>
+                        Mixers • Pavers • Compactors
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="#fleet"
+                class="category-card"
+                onclick="filterCategory('Power & Attachments')"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
+                    alt="Construction machinery"
+                >
+
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+
+                    <h3>
+                        Power & Attachments
+                    </h3>
+
+                    <p>
+                        Generators • Breakers • Drill Rigs
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     INVENTORY
+======================================================= -->
+
+<section
+    class="section inventory reveal"
+    id="fleet"
+>
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+
+                <div class="eyebrow">
+                    Available Machinery
+                </div>
+
+                <h2 class="section-title">
+                    Featured Fleet
+                </h2>
+
+            </div>
+
+
+            <p class="section-text">
+
+                Choose equipment to rent or purchase.
+                Prices shown are sample website data
+                and can be replaced with your inventory.
+
+            </p>
+
+        </div>
+
+
+        <div class="filters">
+
+            <button
+                class="filter-btn active"
+                onclick="filterProducts('all',this)"
+            >
+                All Equipment
+            </button>
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Earthmoving',this)"
+            >
+                Earthmoving
+            </button>
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Material Handling',this)"
+            >
+                Material Handling
+            </button>
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Road Construction',this)"
+            >
+                Road Construction
+            </button>
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Power & Attachments',this)"
+            >
+                Power & Attachments
+            </button>
+
+        </div>
+
+
+        <div
+            class="product-grid"
+            id="productGrid"
+        >
+
+
+            <!-- PRODUCT 1 -->
+
+            <article
+                class="product-card"
+                data-category="Earthmoving"
+                data-name="ZX350 Excavator"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1580901369227-308f6f40bdeb?auto=format&fit=crop&w=900&q=80"
+                        alt="ZX350 Excavator"
+                    >
+
+                    <span class="badge badge-rent">
+                        Available to Rent
+                    </span>
+
+                </div>
+
+
+                <div class="product-body">
+
+                    <div class="product-category">
+                        Earthmoving
+                    </div>
+
+                    <h3>
+                        ZX350 Excavator
+                    </h3>
+
+                    <div class="model">
+                        Model: MF-ZX350
+                    </div>
+
+
+                    <div class="specs">
+
+                        <div class="spec">
+                            <strong>35,000 kg</strong>
+                            <span>Weight</span>
+                        </div>
+
+                        <div class="spec">
+                            <strong>270 HP</strong>
+                            <span>Power</span>
+                        </div>
+
+                        <div class="spec">
+                            <strong>1.8 m³</strong>
+                            <span>Bucket</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="price-row">
+
+                        <div class="price">
+
+                            <strong
+                                class="price-value"
+                                data-usd="850"
+                            >
+                                $850
+                            </strong>
+
+                            <span>
+                                / day rental
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-actions">
+
+                        <button
+                            class="rent-btn"
+                            onclick="openQuote('ZX350 Excavator — Rental')"
+                        >
+                            Rent Now
+                        </button>
+
+                        <button
+                            class="buy-btn"
+                            onclick="openQuote('ZX350 Excavator — Purchase')"
+                        >
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+
+            <article
+                class="product-card"
+                data-category="Earthmoving"
+                data-name="D8 Bulldozer"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="zac-edmonds-N1LBcqLP9ec-unsplash.jpg"
+                        alt="Bulldozer"
+                    >
+
+                    <span class="badge badge-buy">
+                        Sale & Rental
+                    </span>
+
+                </div>
+
+
+                <div class="product-body">
+
+                    <div class="product-category">
+                        Earthmoving
+                    </div>
+
+                    <h3>
+                        D8 Bulldozer
+                    </h3>
+
+                    <div class="model">
+                        Model: MF-D8T
+                    </div>
+
+
+                    <div class="specs">
+
+                        <div class="spec">
+                            <strong>38,000 kg</strong>
+                            <span>Weight</span>
+                        </div>
+
+                        <div class="spec">
+                            <strong>310 HP</strong>
+                            <span>Power</span>
+                        </div>
+
+                        <div class="spec">
+                            <strong>4.8 m</strong>
+                            <span>Blade</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="price-row">
+
+                        <div class="price">
+
+                            <strong
+                                class="price-value"
+                                data-usd="1050"
+                            >
+                                $1,050
+                            </strong>
+
+                            <span>
+                                / day rental
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-actions">
+
+                        <button
+                            class="rent-btn"
+                            onclick="openQuote('D8 Bulldozer — Rental')"
+                        >
+                            Rent Now
+                        </button>
+
+                        <button
+                            class="buy-btn"
+                            onclick="openQuote('D8 Bulldozer — Purchase')"
+                        >
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+
+            <article
+                class="product-card"
+                data-category="Material Handling"
+                data-name="Mobile Crane 80T"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="jindrich-krumhanzl-6fSfmrjqulw-unsplash.jpg"
+                        alt="Mobile crane"
+                    >
+
+                    <span class="badge badge-rent">
+                        Available to Rent
+                    </span>
+
+                </div>
+
+
+                <div class="product-body">
+
+                    <div class="product-category">
+                        Material Handling
+                    </div>
+
+                    <h3>
+                        Mobile Crane 80T
+                    </h3>
+
+                    <div class="model">
+                        Model: MF-C80
+                    </div>
+
+
+                    <div class="specs">
+
+                        <div class="spec">
+                            <strong>80 Ton</strong>
+                            <span>Capacity</span>
+                        </div>
+
+                        <div class="spec">
+                            <strong>350 HP</strong>
+                            <span>Power</span>
+                        </div>
+
+                        <div class="spec">
+                            <strong>52 m</strong>
+                            <span>Boom</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="price-row">
+
+                        <div class="price">
+
+                            <strong
+                                class="price-value"
+                                data-usd="1200"
+                            >
+                                $1,200
+                            </strong>
+
+                            <span>
+                                / day rental
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-actions">
+
+                        <button
+                            class="rent-btn"
+                            onclick="openQuote('Mobile Crane 80T — Rental')"
+                        >
+                            Rent Now
+                        </button>
+
+                        <button
+                            class="buy-btn"
+                            onclick="openQuote('Mobile Crane 80T — Purchase')"
+                        >
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 4 -->
+
+            <article
+                class="product-card"
+                data-category="Material Handling"
+                data-name="Telehandler 14M"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="pexels-alesustinau-11574521.jpg"
+                        alt="Telehandler"
+                    >
+
+                    <span class="badge badge-rent">
+                        Available to Rent
+                    </span>
+
+                </div>
+
+
+                <div class="product-body">
+
+                    <div class="product-category">
+                        Material Handling
+                    </div>
+
+                    <h3>
+                        Telehandler 14M
+                    </h3>
+
+                    <div class="model">
+                        Model: MF-T14
+                    </div>
+
+
+                    <div class="specs">
+
+                        <div class="spec">
+                            <strong>4,500 kg</strong>
+                            <span>Capacity</span>
+                        </div>
+
+                        <div class="spec">
+                            <strong>125 HP</strong>
+                            <span>Power</span>
+                        </div>
+
+                        <div class="spec">
+                            <strong>14 m</strong>
+                            <span>Reach</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="price-row">
+
+                        <div class="price">
+
+                            <strong
+                                class="price-value"
+                                data-usd="480"
+                            >
+                                $480
+                            </strong>
+
+                            <span>
+                                / day rental
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-actions">
+
+                        <button
+                            class="rent-btn"
+                            onclick="openQuote('Telehandler 14M — Rental')"
+                        >
+                            Rent Now
+                        </button>
+
+                        <button
+                            class="buy-btn"
+                            onclick="openQuote('Telehandler 14M — Purchase')"
+                        >
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 5 -->
+
+            <article
+                class="product-card"
+                data-category="Road Construction"
+                data-name="Asphalt Compactor"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80"
+                        alt="Road construction equipment"
+                    >
+
+                    <span class="badge badge-rent">
+                        Available to Rent
+                    </span>
+
+                </div>
+
+
+                <div class="product-body">
+
+                    <div class="product-category">
+                        Road Construction
+                    </div>
+
+                    <h3>
+                        Asphalt Compactor
+                    </h3>
+
+                    <div class="model">
+                        Model: MF-RC90
+                    </div>
+
+
+                    <div class="specs">
+
+                        <div class="spec">
+                            <strong>9,200 kg</strong>
+                            <span>Weight</span>
+                        </div>
+
+                        <div class="spec">
+                            <strong>110 HP</strong>
+                            <span>Power</span>
+                        </div>
+
+                        <div class="spec">
+                            <strong>2.1 m</strong>
+                            <span>Drum</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="price-row">
+
+                        <div class="price">
+
+                            <strong
+                                class="price-value"
+                                data-usd="390"
+                            >
+                                $390
+                            </strong>
+
+                            <span>
+                                / day rental
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-actions">
+
+                        <button
+                            class="rent-btn"
+                            onclick="openQuote('Asphalt Compactor — Rental')"
+                        >
+                            Rent Now
+                        </button>
+
+                        <button
+                            class="buy-btn"
+                            onclick="openQuote('Asphalt Compactor — Purchase')"
+                        >
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 6 -->
+
+            <article
+                class="product-card"
+                data-category="Power & Attachments"
+                data-name="Hydraulic Breaker"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="pexels-aleksandr-sochnev-2149104692-30519990.jpg"
+                        alt="Hydraulic equipment"
+                    >
+
+                    <span class="badge badge-buy">
+                        Parts & Attachments
+                    </span>
+
+                </div>
+
+
+                <div class="product-body">
+
+                    <div class="product-category">
+                        Power & Attachments
+                    </div>
+
+                    <h3>
+                        Hydraulic Breaker
+                    </h3>
+
+                    <div class="model">
+                        Model: MF-HB120
+                    </div>
+
+
+                    <div class="specs">
+
+                        <div class="spec">
+                            <strong>1,200 kg</strong>
+                            <span>Weight</span>
+                        </div>
+
+                        <div class="spec">
+                            <strong>850 BPM</strong>
+                            <span>Impact</span>
+                        </div>
+
+                        <div class="spec">
+                            <strong>120 mm</strong>
+                            <span>Tool</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="price-row">
+
+                        <div class="price">
+
+                            <strong
+                                class="price-value"
+                                data-usd="6800"
+                            >
+                                $6,800
+                            </strong>
+
+                            <span>
+                                starting price
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-actions">
+
+                        <button
+                            class="rent-btn"
+                            onclick="openQuote('Hydraulic Breaker — Rental')"
+                        >
+                            Rent Now
+                        </button>
+
+                        <button
+                            class="buy-btn"
+                            onclick="openQuote('Hydraulic Breaker — Purchase')"
+                        >
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <p
+            id="noResults"
+            style="
+                display:none;
+                text-align:center;
+                padding:40px;
+                color:#69727d;
+            "
+        >
+            No equipment found.
+            Try another category or search term.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     SERVICES
+======================================================= -->
+
+<section class="section services reveal">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+
+                <div class="eyebrow">
+                    Complete Fleet Support
+                </div>
+
+                <h2 class="section-title">
+                    More Than Machinery.
+                </h2>
+
+            </div>
+
+
+            <p class="section-text">
+
+                Keep your projects moving with rental,
+                parts, maintenance and financing solutions.
+
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🚜
+                </div>
+
+                <h3>
+                    Equipment Rentals
+                </h3>
+
+                <p>
+                    Flexible daily, weekly and monthly rental
+                    solutions for construction projects.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ⚙
+                </div>
+
+                <h3>
+                    Spare Parts Supply
+                </h3>
+
+                <p>
+                    Genuine replacement parts and components
+                    for your machinery fleet.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🔧
+                </div>
+
+                <h3>
+                    On-Site Maintenance
+                </h3>
+
+                <p>
+                    Experienced technicians provide preventive
+                    maintenance and emergency field support.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    💳
+                </div>
+
+                <h3>
+                    Machinery Financing
+                </h3>
+
+                <p>
+                    Flexible financing options designed to
+                    support long-term equipment acquisition.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     QUOTE SECTION
+======================================================= -->
+
+<section
+    class="section quote-section reveal"
+    id="quote"
+>
+
+    <div class="container quote-layout">
+
+
+        <div class="quote-copy">
+
+            <div class="eyebrow">
+                Custom Equipment Planning
+            </div>
+
+            <h2>
+                Tell Us What Your Job Site Needs.
+            </h2>
+
+            <p>
+                Submit your requirements and our equipment specialists
+                can prepare a customized machinery proposal.
+            </p>
+
+
+            <ul class="quote-points">
+
+                <li>
+                    Rental and purchase options
+                </li>
+
+                <li>
+                    Delivery planning
+                </li>
+
+                <li>
+                    Equipment specifications
+                </li>
+
+                <li>
+                    Maintenance support
+                </li>
+
+                <li>
+                    Flexible project solutions
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <form
+            class="quote-form"
+            id="quoteForm"
+        >
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name *
+                    </label>
+
+                    <input
+                        id="name"
+                        type="text"
+                        placeholder="Your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="company">
+                        Company
+                    </label>
+
+                    <input
+                        id="company"
+                        type="text"
+                        placeholder="Company name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email *
+                    </label>
+
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="you@company.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone *
+                    </label>
+
+                    <input
+                        id="phone"
+                        type="tel"
+                        placeholder="+1 234 567 890"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="equipment">
+                        Equipment *
+                    </label>
+
+                    <select
+                        id="equipment"
+                        required
+                    >
+
+                        <option value="">
+                            Select equipment
+                        </option>
+
+                        <option>
+                            Excavator
+                        </option>
+
+                        <option>
+                            Bulldozer
+                        </option>
+
+                        <option>
+                            Wheel Loader
+                        </option>
+
+                        <option>
+                            Crane
+                        </option>
+
+                        <option>
+                            Forklift
+                        </option>
+
+                        <option>
+                            Telehandler
+                        </option>
+
+                        <option>
+                            Road Compactor
+                        </option>
+
+                        <option>
+                            Generator
+                        </option>
+
+                        <option>
+                            Hydraulic Breaker
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="dealType">
+                        Requirement
+                    </label>
+
+                    <select id="dealType">
+
+                        <option>
+                            Rent
+                        </option>
+
+                        <option>
+                            Buy
+                        </option>
+
+                        <option>
+                            Rent to Own
+                        </option>
+
+                        <option>
+                            Parts
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="days">
+                        Rental Days
+                    </label>
+
+                    <input
+                        id="days"
+                        type="number"
+                        min="1"
+                        value="7"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Job Site Location
+                    </label>
+
+                    <input
+                        id="location"
+                        type="text"
+                        placeholder="City / Region"
+                    >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label for="message">
+                        Project Requirements
+                    </label>
+
+                    <textarea
+                        id="message"
+                        placeholder="Tell us about your project, required capacity, delivery date, etc."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <button
+                        class="submit-btn"
+                        type="submit"
+                    >
+                        Request Equipment Quote →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="form-message"
+                id="formMessage"
+            >
+                ✓ Thank you! Your quote request has been prepared.
+                Our equipment team will contact you.
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     TESTIMONIALS
+======================================================= -->
+
+<section class="section testimonials reveal">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+
+                <div class="eyebrow">
+                    Customer Experience
+                </div>
+
+                <h2 class="section-title">
+                    Built Around Your Project.
+                </h2>
+
+            </div>
+
+
+            <p class="section-text">
+                Example customer testimonials for the website.
+                Replace these with verified customer reviews before launch.
+            </p>
+
+        </div>
+
+
+        <div class="testimonial-grid">
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    “The equipment arrived ready for work and the delivery
+                    process was extremely straightforward.”
+                </p>
+
+                <div class="customer">
+
+                    <div class="avatar">
+                        JD
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            James Davis
+                        </strong>
+
+                        <span>
+                            Site Contractor
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    “Having rental, parts and maintenance support in one
+                    place makes managing our fleet much easier.”
+                </p>
+
+                <div class="customer">
+
+                    <div class="avatar">
+                        RM
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Robert Miller
+                        </strong>
+
+                        <span>
+                            Project Manager
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    “We were able to quickly find the right machine for
+                    our road construction project.”
+                </p>
+
+                <div class="customer">
+
+                    <div class="avatar">
+                        SK
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Sarah Khan
+                        </strong>
+
+                        <span>
+                            Construction Director
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     NEWSLETTER
+======================================================= -->
+
+<section class="newsletter section">
+
+    <div class="container newsletter-inner">
+
+        <div>
+
+            <h2>
+                Stay Ahead of the Job Site.
+            </h2>
+
+            <p>
+                Receive equipment updates, maintenance tips and fleet news.
+            </p>
+
+        </div>
+
+
+        <form
+            class="newsletter-form"
+            onsubmit="subscribeNewsletter(event)"
+        >
+
+            <input
+                type="email"
+                placeholder="Business email address"
+                required
+            >
+
+            <button type="submit">
+                Subscribe
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <div class="logo">
+
+                    <div class="logo-mark">
+                        MF
+                    </div>
+
+                    <div
+                        class="logo-text"
+                        style="color:#fff;"
+                    >
+
+                        MECHANIX <span>FLEET</span>
+
+                        <small style="color:#7f8993;">
+                            HEAVY EQUIPMENT SOLUTIONS
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    Heavy construction machinery, rental solutions,
+                    spare parts and field support for demanding projects.
+                </p>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>
+                    Equipment
+                </h4>
+
+                <a href="#fleet">
+                    Excavators
+                </a>
+
+                <a href="#fleet">
+                    Bulldozers
+                </a>
+
+                <a href="#fleet">
+                    Cranes
+                </a>
+
+                <a href="#fleet">
+                    Loaders
+                </a>
+
+                <a href="#fleet">
+                    Road Equipment
+                </a>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>
+                    Services
+                </h4>
+
+                <a href="#quote">
+                    Equipment Rental
+                </a>
+
+                <a href="#quote">
+                    Equipment Sales
+                </a>
+
+                <a href="#quote">
+                    Spare Parts
+                </a>
+
+                <a href="#quote">
+                    Maintenance
+                </a>
+
+                <a href="#quote">
+                    Financing
+                </a>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>
+                    Company
+                </h4>
+
+                <a href="#">
+                    About Mechanix Fleet
+                </a>
+
+                <a href="#">
+                    Warranty
+                </a>
+
+                <a href="#">
+                    Safety & Compliance
+                </a>
+
+                <a href="#">
+                    Site Map
+                </a>
+
+                <a href="#quote">
+                    Contact Us
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Mechanix Fleet. All rights reserved.
+            </span>
+
+            <span>
+                Safety • Reliability • Performance
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =======================================================
+     QUOTE MODAL
+======================================================= -->
+
+<div
+    class="modal"
+    id="quoteModal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeQuote()"
+        >
+            ×
+        </button>
+
+
+        <h2>
+            Request Equipment Quote
+        </h2>
+
+        <p>
+            Tell us what you need and our equipment team will contact you.
+        </p>
+
+
+        <div
+            class="selected-equipment"
+            id="selectedEquipment"
+        >
+            Custom Equipment Quote
+        </div>
+
+
+        <form
+            onsubmit="modalQuoteSubmit(event)"
+        >
+
+            <div class="form-group">
+
+                <label>
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    placeholder="Full name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    placeholder="Business email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Phone
+                </label>
+
+                <input
+                    type="tel"
+                    placeholder="Phone number"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Message
+                </label>
+
+                <textarea
+                    placeholder="Tell us about your project..."
+                ></textarea>
+
+            </div>
+
+
+            <button
+                class="submit-btn"
+                type="submit"
+            >
+                Send Quote Request
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
+
+<script>
+
+
+/* =========================================================
+   PARALLAX SCROLL EFFECT
+========================================================= */
+
+let ticking = false;
+
+function updateParallax(){
+
+    const scrollY = window.scrollY;
+
+    document.documentElement.style
+        .setProperty("--scroll-y", scrollY + "px");
+
+
+    /*
+       Background shapes move at different speeds.
+       Is se real depth / parallax effect create hota hai.
+    */
+
+    const shapeOne =
+        document.querySelector(".shape-one");
+
+    const shapeTwo =
+        document.querySelector(".shape-two");
+
+    const shapeThree =
+        document.querySelector(".shape-three");
+
+
+    if(shapeOne){
+
+        shapeOne.style.transform =
+            `translate3d(0, ${scrollY * .12}px, 0)`;
+
+    }
+
+
+    if(shapeTwo){
+
+        shapeTwo.style.transform =
+            `translate3d(0, ${scrollY * -.08}px, 0)`;
+
+    }
+
+
+    if(shapeThree){
+
+        shapeThree.style.transform =
+            `translate3d(0, ${scrollY * .05}px, 0)`;
+
+    }
+
+
+    /*
+       Floating excavator moves slower than page.
+    */
+
+    const machine =
+        document.querySelector(".floating-machine");
+
+    if(machine){
+
+        machine.style.transform =
+            `translate3d(0, ${scrollY * -.10}px, 0)`;
+
+    }
+
+
+    ticking = false;
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        if(!ticking){
+
+            window.requestAnimationFrame(
+                updateParallax
+            );
+
+            ticking = true;
+
+        }
+
+    },
+    {passive:true}
+);
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        function(entries){
+
+            entries.forEach(
+                function(entry){
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold:.12
+        }
+
+    );
+
+
+revealElements.forEach(
+    element =>
+        revealObserver.observe(element)
+);
+
+
+/* =========================================================
+   PRODUCT FILTER
+========================================================= */
+
+function filterProducts(category,button){
+
+    const cards =
+        document.querySelectorAll(".product-card");
+
+    const buttons =
+        document.querySelectorAll(".filter-btn");
+
+    const noResults =
+        document.getElementById("noResults");
+
+
+    buttons.forEach(
+        btn =>
+            btn.classList.remove("active")
+    );
+
+
+    if(button){
+
+        button.classList.add("active");
+
+    }
+
+
+    let visible = 0;
+
+
+    cards.forEach(
+        card => {
+
+            const cardCategory =
+                card.dataset.category;
+
+
+            if(
+                category === "all" ||
+                cardCategory === category
+            ){
+
+                card.style.display =
+                    "block";
+
+                visible++;
+
+            }
+
+            else{
+
+                card.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+    noResults.style.display =
+        visible === 0
+            ? "block"
+            : "none";
+
+}
+
+
+/* =========================================================
+   CATEGORY CLICK
+========================================================= */
+
+function filterCategory(category){
+
+    const buttons =
+        document.querySelectorAll(".filter-btn");
+
+
+    buttons.forEach(
+        button => {
+
+            if(
+                button.textContent
+                    .trim()
+                    .toLowerCase()
+                    .includes(
+                        category
+                            .split(" ")[0]
+                            .toLowerCase()
+                    )
+            ){
+
+                filterProducts(
+                    category,
+                    button
+                );
+
+            }
+
+        }
+    );
+
+
+    setTimeout(
+        function(){
+
+            const target =
+                document.getElementById("fleet");
+
+
+            if(target){
+
+                target.scrollIntoView({
+                    behavior:"smooth"
+                });
+
+            }
+
+        },
+        100
+    );
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchEquipment(){
+
+    const search =
+        document
+            .getElementById("searchInput")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    const type =
+        document
+            .getElementById("searchType")
+            .value;
+
+
+    const cards =
+        document.querySelectorAll(".product-card");
+
+
+    let visible = 0;
+
+
+    cards.forEach(
+        card => {
+
+            const name =
+                card.dataset.name
+                    .toLowerCase();
+
+
+            const category =
+                card.dataset.category
+                    .toLowerCase();
+
+
+            const matchesSearch =
+                !search ||
+                name.includes(search) ||
+                category.includes(search);
+
+
+            let matchesType = true;
+
+
+            /*
+               Current demo products support
+               both buying and renting.
+            */
+
+            if(
+                type === "rent" ||
+                type === "buy" ||
+                type === "parts"
+            ){
+
+                matchesType = true;
+
+            }
+
+
+            if(
+                matchesSearch &&
+                matchesType
+            ){
+
+                card.style.display =
+                    "block";
+
+                visible++;
+
+            }
+
+            else{
+
+                card.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+    document
+        .getElementById("noResults")
+        .style.display =
+            visible === 0
+                ? "block"
+                : "none";
+
+
+    document
+        .getElementById("fleet")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =========================================================
+   ENTER KEY SEARCH
+========================================================= */
+
+document
+    .getElementById("searchInput")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Enter"){
+
+                searchEquipment();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   MOBILE SEARCH
+========================================================= */
+
+function toggleMobileSearch(){
+
+    const searchArea =
+        document.getElementById(
+            "searchArea"
+        );
+
+    searchArea.classList.toggle(
+        "mobile-search"
+    );
+
+}
+
+
+/* =========================================================
+   QUOTE MODAL
+========================================================= */
+
+function openQuote(equipment){
+
+    document
+        .getElementById("selectedEquipment")
+        .textContent = equipment;
+
+
+    document
+        .getElementById("quoteModal")
+        .classList.add("show");
+
+}
+
+
+function closeQuote(){
+
+    document
+        .getElementById("quoteModal")
+        .classList.remove("show");
+
+}
+
+
+window.addEventListener(
+    "click",
+    function(event){
+
+        const modal =
+            document.getElementById(
+                "quoteModal"
+            );
+
+
+        if(event.target === modal){
+
+            closeQuote();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   MODAL FORM
+========================================================= */
+
+function modalQuoteSubmit(event){
+
+    event.preventDefault();
+
+
+    alert(
+        "Thank you! Your equipment quote request has been received."
+    );
+
+
+    event.target.reset();
+
+    closeQuote();
+
+}
+
+
+/* =========================================================
+   MAIN QUOTE FORM
+========================================================= */
+
+document
+    .getElementById("quoteForm")
+    .addEventListener(
+        "submit",
+        function(event){
+
+            event.preventDefault();
+
+
+            document
+                .getElementById("formMessage")
+                .style.display =
+                    "block";
+
+
+            this.reset();
+
+        }
+    );
+
+
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+function subscribeNewsletter(event){
+
+    event.preventDefault();
+
+
+    alert(
+        "Thank you for subscribing to Mechanix Fleet updates!"
+    );
+
+
+    event.target.reset();
+
+}
+
+
+/* =========================================================
+   CURRENCY CONVERTER
+========================================================= */
+
+const rates = {
+
+    USD:1,
+
+    EUR:.86,
+
+    GBP:.75,
+
+    PKR:280
+
+};
+
+
+const symbols = {
+
+    USD:"$",
+
+    EUR:"€",
+
+    GBP:"£",
+
+    PKR:"₨"
+
+};
+
+
+document
+    .getElementById("currencySelect")
+    .addEventListener(
+        "change",
+        function(){
+
+            const currency =
+                this.value;
+
+
+            const rate =
+                rates[currency];
+
+
+            const symbol =
+                symbols[currency];
+
+
+            document
+                .querySelectorAll(
+                    ".price-value"
+                )
+                .forEach(
+                    price => {
+
+                        const usd =
+                            Number(
+                                price.dataset.usd
+                            );
+
+
+                        const converted =
+                            Math.round(
+                                usd * rate
+                            );
+
+
+                        price.textContent =
+                            symbol +
+                            converted.toLocaleString();
+
+                    }
+                );
+
+        }
+    );
+
+
+/* =========================================================
+   ESC KEY CLOSE MODAL
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeQuote();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIAL PARALLAX
+========================================================= */
+
+updateParallax();
+
+</script>
+
+</body>
+</html>
